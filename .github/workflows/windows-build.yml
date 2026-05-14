@@ -39,8 +39,9 @@ jobs:
         run: pyinstaller --clean PulseFinance.spec
 
       - name: Build installer
+        shell: pwsh
         run: |
-          "C:\Program Files (x86)\Inno Setup 6\ISCC.exe" "/DMyAppVersion=${{ steps.version.outputs.app_version }}" PulseFinance.iss
+          & "C:\Program Files (x86)\Inno Setup 6\ISCC.exe" "/DMyAppVersion=${{ steps.version.outputs.app_version }}" "PulseFinance.iss"
 
       - name: Package zip
         shell: pwsh
