@@ -1,0 +1,11 @@
+__pycache__/
+*.pyc
+.codex
+.env
+.env.*
+finance.db
+*.bak
+backups/
+release/
+dist/
+.venv/

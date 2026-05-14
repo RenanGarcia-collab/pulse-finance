@@ -1,0 +1,1060 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Pulse Finance</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="shell">
+    <section class="login-screen" id="loginScreen">
+      <div class="login-story">
+        <div class="login-brand-lockup">
+          <div class="login-brand-halo"></div>
+          <div class="login-brand-mark" aria-hidden="true">$</div>
+          <div>
+            <p class="eyebrow">Pulse Finance</p>
+            <h1>Controle financeiro direto, <em>claro e sem ruído.</em></h1>
+          </div>
+        </div>
+        <p class="lead">Entre para acompanhar cartões, gastos, investimentos, patrimônio e acesso em um único painel.</p>
+        <div class="login-story-divider" aria-hidden="true"></div>
+        <div class="login-selling-points">
+          <article class="selling-point">
+            <span class="selling-icon">◒</span>
+            <div>
+              <strong>Cartões</strong>
+              <p>Limite, comprometimento e leitura da fatura sem precisar caçar informação.</p>
+            </div>
+          </article>
+          <article class="selling-point">
+            <span class="selling-icon">↗</span>
+            <div>
+              <strong>Investimentos</strong>
+              <p>Aportes separados dos gastos com visão limpa do acumulado e do mês.</p>
+            </div>
+          </article>
+          <article class="selling-point">
+            <span class="selling-icon">⌂</span>
+            <div>
+              <strong>Patrimônio</strong>
+              <p>Bens e evolução de pagamento com saldo quitado e saldo restante no mesmo fluxo.</p>
+            </div>
+          </article>
+        </div>
+        <div class="login-trust-row">
+          <span>⛨ Criptografado</span>
+          <span>◌ Dados privados</span>
+          <span>✦ v1.0</span>
+        </div>
+      </div>
+
+      <div class="login-panel">
+        <div class="login-form-card">
+          <div class="login-card-brand">
+            <div class="brand-mark">
+              <span class="brand-dot"></span>
+            </div>
+            <div>
+              <strong class="login-card-brand-name">Pulse Finance</strong>
+              <span class="login-card-brand-subtitle">controle claro e contínuo</span>
+            </div>
+          </div>
+          <div class="login-panel-head">
+            <p class="eyebrow">Entrar</p>
+            <h2>Acesso ao sistema</h2>
+            <p class="lead">Use seu usuário e senha cadastrados para abrir o painel.</p>
+          </div>
+
+          <form id="loginForm" class="stack">
+            <label>
+              <span>Usuário</span>
+              <div class="input-shell">
+                <span class="input-icon">◌</span>
+                <input type="text" name="username" placeholder="Digite seu usuário" required>
+              </div>
+            </label>
+            <label>
+              <span>Senha</span>
+              <div class="input-shell">
+                <span class="input-icon">●</span>
+                <input type="password" name="password" placeholder="Digite sua senha" required>
+              </div>
+            </label>
+            <button type="submit" class="primary-button login-submit-button">Entrar no painel <span>→</span></button>
+          </form>
+
+          <form id="twoFactorLoginForm" class="stack hidden">
+            <label>
+              <span>Código do app ou de recuperação</span>
+              <div class="input-shell">
+                <span class="input-icon">⛨</span>
+                <input type="text" name="code" autocomplete="one-time-code" autocapitalize="characters" placeholder="Digite o código de 6 dígitos ou o código de recuperação" required>
+              </div>
+            </label>
+            <button type="submit" class="primary-button login-submit-button">Verificar código <span>→</span></button>
+            <button type="button" id="twoFactorBackButton" class="ghost-button">Usar outro usuário</button>
+          </form>
+
+          <div class="login-footer">
+            <p class="hint">Use seu usuário e senha cadastrados para acessar o painel.</p>
+            <p id="loginMessage" class="message"></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="app-screen hidden" id="appScreen">
+      <div id="mobileSidebarBackdrop" class="mobile-sidebar-backdrop hidden" aria-hidden="true"></div>
+      <header class="mobile-topbar">
+        <button id="mobileMenuButton" class="mobile-menu-button" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="appSidebar">☰</button>
+        <div class="mobile-topbar-brand">
+          <strong>Pulse Finance</strong>
+          <span>controle claro e contínuo</span>
+        </div>
+      </header>
+      <aside class="sidebar" id="appSidebar" role="dialog" aria-modal="true" aria-labelledby="mobileSidebarTitle" aria-hidden="true" tabindex="-1">
+        <div class="mobile-sidebar-head">
+          <div class="sidebar-brand">
+            <div class="brand-mark">
+              <span class="brand-dot"></span>
+            </div>
+            <div>
+              <strong class="brand-name" id="mobileSidebarTitle">Pulse Finance</strong>
+              <span class="brand-subtitle">controle claro e contínuo</span>
+            </div>
+          </div>
+          <button id="mobileSidebarClose" class="mobile-sidebar-close" type="button" aria-label="Fechar menu">✕</button>
+        </div>
+        <div class="sidebar-brand sidebar-brand-desktop">
+          <div class="brand-mark">
+            <span class="brand-dot"></span>
+          </div>
+          <div>
+            <strong class="brand-name">Pulse Finance</strong>
+            <span class="brand-subtitle">controle claro e contínuo</span>
+          </div>
+        </div>
+
+        <nav class="app-nav" id="appNav" aria-label="Navegação principal">
+          <button type="button" class="app-nav-button active" data-tab="overview">Visão geral</button>
+          <button type="button" class="app-nav-button" data-tab="analytics">Análise mensal</button>
+          <button type="button" class="app-nav-button" data-tab="cards">Cartões</button>
+          <button type="button" class="app-nav-button" data-tab="card-pressure">Limite de gastos</button>
+          <button type="button" class="app-nav-button" data-tab="fixed">Gastos fixos</button>
+          <button type="button" class="app-nav-button" data-tab="monthly">Gastos mensais</button>
+          <button type="button" class="app-nav-button" data-tab="daily">Gastos diários</button>
+          <button type="button" class="app-nav-button" data-tab="income">Salário e renda</button>
+          <button type="button" class="app-nav-button" data-tab="investments">Investimentos</button>
+          <button type="button" class="app-nav-button" data-tab="wealth">Patrimônio</button>
+          <button type="button" class="app-nav-button" data-tab="access">Acesso</button>
+        </nav>
+
+        <div class="sidebar-footer">
+          <div class="month-filter sidebar-month">
+            <span>Mês em foco</span>
+            <button id="monthPickerButton" class="month-picker-button" type="button" aria-haspopup="dialog" aria-expanded="false">
+              <span id="monthPickerLabel">Selecione</span>
+              <span class="month-picker-caret">▾</span>
+            </button>
+            <input type="month" id="monthPicker" class="hidden-month-input">
+            <div id="monthPopover" class="month-popover hidden" role="dialog" aria-label="Selecionar mês">
+              <div class="month-popover-head">
+                <button id="monthPrevYear" class="month-nav-button" type="button" aria-label="Ano anterior">‹</button>
+                <strong id="monthCurrentYear">2026</strong>
+                <button id="monthNextYear" class="month-nav-button" type="button" aria-label="Próximo ano">›</button>
+              </div>
+              <div id="monthGrid" class="month-grid"></div>
+              <div class="month-popover-foot">
+                <button id="monthTodayButton" class="month-foot-button" type="button">Hoje</button>
+                <button id="monthClearButton" class="month-foot-button" type="button">Limpar</button>
+              </div>
+            </div>
+          </div>
+          <div class="sidebar-actions">
+            <button id="toggleAmountsButton" class="icon-button" type="button" aria-label="Mostrar ou ocultar valores">◐</button>
+            <button id="logoutButton" class="ghost-button" type="button">Sair</button>
+          </div>
+        </div>
+      </aside>
+
+      <div class="content-area">
+        <section class="page-header">
+          <div>
+            <p class="eyebrow" id="heroEyebrow">Visão geral</p>
+            <h2 id="heroGreeting">Olá</h2>
+            <p class="lead" id="heroInsight"></p>
+          </div>
+        </section>
+
+        <section class="screen-stack">
+          <section class="app-panel-grid" data-tab-panel="overview">
+            <article class="panel overview-radar-panel" id="overviewAlertsPanel">
+              <div id="alertsList" class="alert-list"></div>
+            </article>
+
+            <section class="stats-grid" id="statsGrid"></section>
+
+            <section class="overview-layout">
+              <article class="panel bordered-panel">
+                <div class="section-header">
+                  <div>
+                    <p class="eyebrow">Saldo geral</p>
+                    <h3>Leitura consolidada</h3>
+                  </div>
+                  <button type="button" class="icon-button subtle" id="overviewBalanceToggle" aria-label="Mostrar ou ocultar saldo">◐</button>
+                </div>
+                <div class="headline-value" id="overviewBalanceValue">R$ 0,00</div>
+                <div class="meta">Patrimônio pago, investimentos e saídas do mês na mesma visão.</div>
+                <div id="accountsOverviewList" class="list-grid compact-list"></div>
+              </article>
+
+              <article class="panel bordered-panel">
+                <div class="section-header">
+                  <div>
+                    <p class="eyebrow">Faturas</p>
+                    <h3>Cartões em <span id="invoiceMonthLabel">mês</span></h3>
+                  </div>
+                  <button type="button" class="icon-button subtle" id="overviewInvoiceToggle" aria-label="Mostrar ou ocultar faturas">◐</button>
+                </div>
+                <div class="headline-value danger-text" id="overviewInvoiceValue">R$ 0,00</div>
+                <div class="meta">Total já comprometido nos cartões do mês selecionado.</div>
+                <div id="invoiceCardsList" class="list-grid compact-list"></div>
+              </article>
+            </section>
+
+            <article class="panel overview-month-panel">
+              <div class="section-header">
+                <div>
+                  <p class="eyebrow">Resumo do mês</p>
+                  <h3 id="overviewMonthLabel">Mês selecionado</h3>
+                </div>
+                <p class="section-note" id="overviewMonthMeta"></p>
+              </div>
+              <div class="overview-grid" id="overviewSummaryGrid"></div>
+            </article>
+          </section>
+
+          <section class="tab-shell hidden" data-tab-panel="analytics">
+            <header class="tab-section-head">
+              <h3>Análise mensal</h3>
+              <p class="section-copy">Leitura histórica dos gastos para entender tendência, pressão sobre a renda e os pontos que mais pesam no mês.</p>
+            </header>
+            <div id="analyticsSummaryGrid" class="tab-summary-grid"></div>
+
+            <section class="analytics-layout">
+              <article class="panel panel-accent analytics-panel analytics-trend-panel">
+                <div class="section-header">
+                  <div>
+                    <p class="eyebrow">Evolução recente</p>
+                    <h3 id="analyticsTrendTitle">Renda x gastos dos últimos 6 meses</h3>
+                  </div>
+                  <div class="analytics-trend-headside">
+                    <p class="section-note" id="analyticsTrendMeta">Leitura histórica</p>
+                    <div class="analytics-chart-legend analytics-chart-legend-inline">
+                      <span><i class="swatch income"></i>Renda</span>
+                      <span><i class="swatch spent"></i>Gastos</span>
+                    </div>
+                  </div>
+                </div>
+                <div id="analyticsTrendChart" class="analytics-trend-chart"></div>
+              </article>
+
+              <aside class="panel analytics-panel analytics-insight-panel">
+                <div class="section-header">
+                  <div>
+                    <p class="eyebrow">Leitura do mês</p>
+                    <h3 id="analyticsInsightTitle">Destaques do mês</h3>
+                  </div>
+                </div>
+                <div id="analyticsHighlights" class="analytics-highlight-list"></div>
+                <div id="analyticsNarrative" class="analytics-narrative"></div>
+              </aside>
+
+              <article class="panel analytics-panel analytics-donut-panel">
+                <div class="section-header">
+                  <div>
+                    <p class="eyebrow">Composição</p>
+                    <h3>Composição do gasto do mês</h3>
+                  </div>
+                </div>
+                <div id="analyticsCategoryDonut" class="analytics-category-donut"></div>
+              </article>
+
+              <article class="panel analytics-panel analytics-ranking-panel">
+                <div class="section-header">
+                  <div>
+                    <p class="eyebrow">Ranking</p>
+                    <h3>Onde o dinheiro pesou mais</h3>
+                  </div>
+                </div>
+                <div id="analyticsCategoryChart" class="analytics-category-chart"></div>
+              </article>
+            </section>
+          </section>
+
+          <section class="tab-shell hidden" data-tab-panel="cards">
+            <header class="tab-section-head">
+              <h3>Cartões</h3>
+              <p class="section-copy">Cadastre e acompanhe cada cartão sem empurrar o que importa para o fim da tela.</p>
+            </header>
+            <div id="cardsSummaryGrid" class="tab-summary-grid"></div>
+
+            <section class="tab-main-grid">
+              <article class="panel">
+                <div class="section-header">
+                  <div>
+                    <p class="eyebrow">Novo cartão</p>
+                    <h3 id="cardFormTitle">Adicionar cartão</h3>
+                  </div>
+                </div>
+                <form id="cardForm" class="form-grid">
+                  <input type="text" name="name" placeholder="Nome do cartão" required>
+                  <select name="network" required>
+                    <option value="">Bandeira</option>
+                    <option>Mastercard</option>
+                    <option>Visa</option>
+                    <option>Elo</option>
+                    <option>American Express</option>
+                    <option>Hipercard</option>
+                  </select>
+                  <input type="text" name="issuer" placeholder="Emissor ou banco">
+                  <input type="text" name="limit" placeholder="Limite total do cartão" inputmode="decimal" data-money-input required>
+                  <input type="number" name="billingDay" placeholder="Dia da fatura" min="1" max="31" required>
+                  <div id="cardFormNote" class="form-inline-note hidden">Atualize o limite ou os dados do cartão sem perder o histórico já cadastrado.</div>
+                  <div class="form-action-row">
+                    <button type="submit" id="cardFormSubmit" class="primary-button">Adicionar cartão</button>
+                    <button type="button" id="cardFormCancel" class="ghost-button hidden">Cancelar edição</button>
+                  </div>
+                </form>
+              </article>
+
+              <article class="panel">
+                <div class="section-header">
+                  <div>
+                    <p class="eyebrow">Cartões cadastrados</p>
+                    <h3>Seus cartões ativos</h3>
+                  </div>
+                </div>
+                <div id="cardList" class="list-grid records-list"></div>
+              </article>
+            </section>
+          </section>
+
+          <section class="tab-shell hidden" data-tab-panel="card-pressure">
+            <header class="tab-section-head">
+              <h3>Limite de gastos</h3>
+              <p class="section-copy">Veja de forma direta quanto já foi comprometido e quanto ainda resta de limite.</p>
+            </header>
+            <div id="cardPressureSummary" class="tab-summary-grid"></div>
+
+            <article class="panel">
+              <div class="section-header">
+                <div>
+                  <p class="eyebrow">Comprometimento</p>
+                  <h3>Cartões do mês</h3>
+                </div>
+              </div>
+              <div id="cardPressureList" class="list-grid compact-list records-list"></div>
+            </article>
+          </section>
+
+          <section class="tab-shell hidden" data-tab-panel="fixed">
+            <header class="tab-section-head">
+              <h3>Gastos fixos</h3>
+              <p class="section-copy">Registre contas previsíveis que se repetem todo mês e abatem diretamente da renda cadastrada.</p>
+            </header>
+            <div id="fixedSummaryGrid" class="tab-summary-grid"></div>
+
+            <section class="tab-main-grid">
+              <article class="panel">
+                <div class="section-header">
+                  <div>
+                    <p class="eyebrow">Novo fixo</p>
+                    <h3 id="fixedExpenseFormTitle">Cadastrar conta recorrente</h3>
+                  </div>
+                </div>
+                <form id="fixedExpenseForm" class="form-grid">
+                  <input type="text" name="title" placeholder="Ex: Netflix, internet, academia" required>
+                  <input type="text" name="amount" placeholder="Valor mensal" inputmode="decimal" data-money-input required>
+                  <select name="category" required>
+                    <option value="">Categoria</option>
+                    <option>Moradia</option>
+                    <option>Assinaturas</option>
+                    <option>Saúde</option>
+                    <option>Transporte</option>
+                    <option>Lazer</option>
+                    <option>Educação</option>
+                    <option>Serviços</option>
+                    <option>Outros</option>
+                  </select>
+                  <select name="memberId" id="fixedExpenseMemberSelect" required></select>
+                  <select name="paymentMethod" id="fixedExpensePaymentMethod" required>
+                    <option value="">Forma de pagamento</option>
+                    <option value="Credito">Crédito</option>
+                    <option value="Debito">Débito</option>
+                    <option value="Pix">Pix</option>
+                    <option value="Dinheiro">Dinheiro</option>
+                  </select>
+                  <label id="fixedExpenseCardField" class="hidden">
+                    <span>Cartão</span>
+                    <select name="cardId" id="fixedExpenseCardSelect">
+                      <option value="">Sem cartão</option>
+                    </select>
+                  </label>
+                  <label>
+                    <span>Parcelas</span>
+                    <select name="installments" required>
+                      <option value="1">1x</option>
+                      <option value="2">2x</option>
+                      <option value="3">3x</option>
+                      <option value="4">4x</option>
+                      <option value="5">5x</option>
+                      <option value="6">6x</option>
+                      <option value="7">7x</option>
+                      <option value="8">8x</option>
+                      <option value="9">9x</option>
+                      <option value="10">10x</option>
+                      <option value="11">11x</option>
+                      <option value="12">12x</option>
+                    </select>
+                  </label>
+                  <label>
+                    <span>Mês inicial</span>
+                    <input type="month" name="startMonth" required>
+                  </label>
+                  <label>
+                    <span>Mês final opcional</span>
+                    <input type="month" name="endMonth">
+                  </label>
+                  <div id="fixedExpenseFormNote" class="form-inline-note">Use 1x para gasto fixo contínuo. Com mais parcelas, o mês final é calculado se ficar vazio.</div>
+                  <div class="form-action-row">
+                    <button type="submit" id="fixedExpenseFormSubmit" class="primary-button">Cadastrar gasto fixo</button>
+                    <button type="button" id="fixedExpenseFormCancel" class="ghost-button hidden">Cancelar edição</button>
+                  </div>
+                </form>
+              </article>
+
+              <article class="panel">
+                <div class="section-header">
+                  <div>
+                    <p class="eyebrow">Contas ativas</p>
+                    <h3>Fixos do mês</h3>
+                  </div>
+                </div>
+                <div id="fixedExpenseList" class="list-grid records-list"></div>
+              </article>
+            </section>
+          </section>
+
+          <section class="tab-shell hidden" data-tab-panel="monthly">
+            <header class="tab-section-head">
+              <h3>Gastos mensais</h3>
+              <p class="section-copy">Contas variáveis e parcelas em andamento com cadastro simples e lista limpa.</p>
+            </header>
+            <div id="monthlySummaryGrid" class="tab-summary-grid"></div>
+
+            <section class="tab-main-grid">
+              <article class="panel">
+                <div class="section-header">
+                  <div>
+                    <p class="eyebrow">Novo gasto</p>
+                    <h3 id="expenseFormTitle">Cadastrar conta ou parcela</h3>
+                  </div>
+                </div>
+                <form id="expenseForm" class="form-grid">
+                  <input type="text" name="title" placeholder="Descrição do gasto mensal" required>
+                  <input type="text" name="amount" placeholder="Valor total da compra ou conta" inputmode="decimal" data-money-input required>
+                  <select name="category" required>
+                    <option value="">Categoria</option>
+                    <option>Moradia</option>
+                    <option>Mercado</option>
+                    <option>Saúde</option>
+                    <option>Transporte</option>
+                    <option>Lazer</option>
+                    <option>Educação</option>
+                    <option>Serviços</option>
+                    <option>Outros</option>
+                  </select>
+                  <select name="memberId" id="expenseMemberSelect" required></select>
+                  <select name="paymentMethod" id="expensePaymentMethod" required>
+                    <option value="">Forma de pagamento</option>
+                    <option value="Credito">Crédito</option>
+                    <option value="Debito">Débito</option>
+                    <option value="Pix">Pix</option>
+                    <option value="Dinheiro">Dinheiro</option>
+                  </select>
+                  <label id="expenseCardField" class="hidden">
+                    <span>Cartão</span>
+                    <select name="cardId" id="expenseCardSelect">
+                      <option value="">Sem cartão</option>
+                    </select>
+                  </label>
+                  <label>
+                    <span>Mês inicial</span>
+                    <input type="month" name="startMonth" required>
+                  </label>
+                  <label>
+                    <span>Parcelamento</span>
+                    <select name="installments" required>
+                      <option value="1">1x</option>
+                      <option value="2">2x</option>
+                      <option value="3">3x</option>
+                      <option value="4">4x</option>
+                      <option value="5">5x</option>
+                      <option value="6">6x</option>
+                      <option value="7">7x</option>
+                      <option value="8">8x</option>
+                      <option value="9">9x</option>
+                      <option value="10">10x</option>
+                      <option value="11">11x</option>
+                      <option value="12">12x</option>
+                    </select>
+                  </label>
+                  <div id="expenseFormNote" class="form-inline-note">Use `1x` para gasto à vista. Acima disso, o sistema acompanha as parcelas restantes.</div>
+                  <div class="form-action-row">
+                    <button type="submit" id="expenseFormSubmit" class="primary-button">Cadastrar gasto</button>
+                    <button type="button" id="expenseFormCancel" class="ghost-button hidden">Cancelar edição</button>
+                  </div>
+                </form>
+              </article>
+
+              <article class="panel">
+                <div class="section-header">
+                  <div>
+                    <p class="eyebrow">Lançamentos ativos</p>
+                    <h3>Gastos recorrentes</h3>
+                  </div>
+                </div>
+                <div id="expenseList" class="list-grid records-list"></div>
+              </article>
+            </section>
+          </section>
+
+          <section class="tab-shell hidden" data-tab-panel="daily">
+            <header class="tab-section-head">
+              <h3>Gastos diários</h3>
+              <p class="section-copy">Compras do dia registradas com foco no valor, data e forma de pagamento.</p>
+            </header>
+            <div id="dailySummaryGrid" class="tab-summary-grid"></div>
+
+            <section class="tab-main-grid">
+              <article class="panel">
+                <div class="section-header">
+                  <div>
+                    <p class="eyebrow">Nova compra</p>
+                    <h3 id="dailyExpenseFormTitle">Cadastrar compra do dia</h3>
+                  </div>
+                </div>
+                <form id="dailyExpenseForm" class="form-grid">
+                  <input type="date" name="expenseDate" required>
+                  <input type="text" name="title" placeholder="Descrição da compra" required>
+                  <input type="text" name="amount" placeholder="Valor total da compra" inputmode="decimal" data-money-input required>
+                  <select name="category" required>
+                    <option value="">Categoria</option>
+                    <option>Moradia</option>
+                    <option>Mercado</option>
+                    <option>Saúde</option>
+                    <option>Transporte</option>
+                    <option>Lazer</option>
+                    <option>Educação</option>
+                    <option>Serviços</option>
+                    <option>Outros</option>
+                  </select>
+                  <select name="paymentMethod" id="dailyExpensePaymentMethod" required>
+                    <option value="">Forma de pagamento</option>
+                    <option value="Credito">Crédito</option>
+                    <option value="Debito">Débito</option>
+                    <option value="Pix">Pix</option>
+                    <option value="Dinheiro">Dinheiro</option>
+                  </select>
+                  <select name="memberId" id="dailyExpenseMemberSelect" required></select>
+                  <label id="dailyCardField" class="hidden">
+                    <span>Cartão</span>
+                    <select name="cardId" id="dailyExpenseCardSelect">
+                      <option value="">Sem cartão</option>
+                    </select>
+                  </label>
+                  <label id="dailyInstallmentsField" class="hidden">
+                    <span>Parcelamento</span>
+                    <select name="installments" id="dailyInstallmentsInput" required>
+                      <option value="1">1x</option>
+                      <option value="2">2x</option>
+                      <option value="3">3x</option>
+                      <option value="4">4x</option>
+                      <option value="5">5x</option>
+                      <option value="6">6x</option>
+                      <option value="7">7x</option>
+                      <option value="8">8x</option>
+                      <option value="9">9x</option>
+                      <option value="10">10x</option>
+                      <option value="11">11x</option>
+                      <option value="12">12x</option>
+                    </select>
+                  </label>
+                  <div id="dailyExpenseFormNote" class="form-inline-note">Compras à vista ficam só no mês da compra. No crédito parcelado, o sistema acompanha apenas as parcelas reais restantes.</div>
+                  <div class="form-action-row">
+                    <button type="submit" id="dailyExpenseFormSubmit" class="primary-button">Registrar compra</button>
+                    <button type="button" id="dailyExpenseFormCancel" class="ghost-button hidden">Cancelar edição</button>
+                  </div>
+                </form>
+              </article>
+
+              <article class="panel">
+                <div class="section-header">
+                  <div>
+                    <p class="eyebrow">Movimentação</p>
+                    <h3>Compras registradas</h3>
+                  </div>
+                </div>
+                <div id="dailyExpenseList" class="list-grid records-list"></div>
+              </article>
+            </section>
+          </section>
+
+          <section class="tab-shell hidden" data-tab-panel="income">
+            <header class="tab-section-head">
+              <h3>Salário e renda</h3>
+              <p class="section-copy">Cadastre as rendas do mês e acompanhe a soma do casal junto com o resultado final depois dos gastos lançados.</p>
+            </header>
+            <div id="incomeSummaryGrid" class="tab-summary-grid income-summary-grid"></div>
+
+            <section class="tab-main-grid income-main-grid">
+              <div class="income-actions-column">
+                <article class="panel income-entry-panel">
+                  <div class="section-header">
+                    <div>
+                      <p class="eyebrow">Nova renda</p>
+                      <h3 id="incomeFormTitle">Cadastrar entrada do mês</h3>
+                    </div>
+                  </div>
+                  <form id="incomeForm" class="form-grid">
+                    <select name="memberId" id="incomeMemberSelect" required></select>
+                    <input type="text" name="title" placeholder="Ex: Salário principal, renda extra" required>
+                    <input type="text" name="amount" placeholder="Valor da renda" inputmode="decimal" data-money-input required>
+                    <input type="month" name="month" required>
+                    <div id="incomeFormNote" class="form-inline-note hidden">Atualize a renda sem perder o vínculo com o mês e com a pessoa responsável.</div>
+                    <div class="form-action-row">
+                      <button type="submit" id="incomeFormSubmit" class="primary-button">Registrar renda</button>
+                      <button type="button" id="incomeFormCancel" class="ghost-button hidden">Cancelar edição</button>
+                    </div>
+                  </form>
+                </article>
+
+                <article class="panel income-tithe-panel">
+                  <p class="eyebrow income-tithe-eyebrow">Dízimo do mês</p>
+                  <h3 class="income-tithe-title">Separar o dízimo em <span id="incomeTitheMonthLabel">--</span></h3>
+                  <p class="income-tithe-description">Deseja separar o melhor em agradecimento por tudo o que recebeu este mês?</p>
+                  <form id="incomeTitheForm" class="form-grid single-form">
+                    <div class="income-tithe-control-row">
+                      <label class="checkbox-row" for="incomeTitheEnabled">
+                        <span class="checkbox-icon-shell">
+                          <input type="checkbox" id="incomeTitheEnabled" name="enabled">
+                          <span class="sr-only">Ativar dízimo do mês</span>
+                        </span>
+                      </label>
+                      <label class="field-stack income-tithe-field" for="incomeTithePercentage">
+                        <span class="income-tithe-field-label">Porcentagem do dízimo</span>
+                        <div class="income-tithe-input-wrap">
+                          <input type="text" id="incomeTithePercentage" name="percentage" inputmode="decimal" placeholder="Ex: 10">
+                          <span class="income-tithe-input-suffix" aria-hidden="true">%</span>
+                        </div>
+                      </label>
+                    </div>
+                    <div class="form-inline-note income-tithe-help">A renda bruta continua registrada normalmente. O sistema usa a porcentagem para calcular quanto fica disponível para viver no mês.</div>
+                    <button type="submit" class="primary-button">Salvar dízimo do mês</button>
+                  </form>
+                  <div id="incomeTitheStatus" class="meta income-tithe-status income-tithe-callout"></div>
+                </article>
+              </div>
+
+              <article class="panel income-history-panel">
+                <div class="section-header">
+                  <div>
+                    <p class="eyebrow">Entradas do mês</p>
+                    <h3>Rendas em acompanhamento</h3>
+                  </div>
+                </div>
+                <div id="incomeList" class="list-grid records-list"></div>
+              </article>
+            </section>
+          </section>
+
+          <section class="tab-shell hidden" data-tab-panel="investments">
+            <header class="tab-section-head">
+              <h3>Investimentos</h3>
+              <p class="section-copy">Aportes registrados separadamente dos gastos, com leitura do mês e do acumulado.</p>
+            </header>
+            <div id="investmentsSummaryGrid" class="tab-summary-grid"></div>
+
+            <section class="tab-main-grid">
+              <article class="panel">
+                <div class="section-header">
+                  <div>
+                    <p class="eyebrow">Novo aporte</p>
+                    <h3>Registrar investimento</h3>
+                  </div>
+                </div>
+                <form id="investmentForm" class="form-grid single-form">
+                  <input type="text" name="name" placeholder="Ex: Aporte Tesouro" required>
+                  <input type="text" name="amount" placeholder="Valor investido" inputmode="decimal" data-money-input required>
+                  <input type="month" name="month" required>
+                  <button type="submit" class="primary-button">Registrar investimento</button>
+                </form>
+              </article>
+
+              <article class="panel">
+                <div class="section-header">
+                  <div>
+                    <p class="eyebrow">Histórico</p>
+                    <h3>Investimentos registrados</h3>
+                  </div>
+                </div>
+                <div id="investmentList" class="list-grid records-list"></div>
+              </article>
+            </section>
+          </section>
+
+          <section class="tab-shell hidden" data-tab-panel="wealth">
+            <header class="tab-section-head">
+              <h3>Patrimônio</h3>
+              <p class="section-copy">Bens cadastrados com evolução de pagamento, saldo quitado e valor restante.</p>
+            </header>
+            <div id="wealthSummaryGrid" class="tab-summary-grid"></div>
+
+            <section class="tab-main-grid">
+              <article class="panel">
+                <div class="section-header">
+                  <div>
+                    <p class="eyebrow">Novo bem</p>
+                    <h3 id="assetFormTitle">Cadastrar patrimônio</h3>
+                  </div>
+                </div>
+                <form id="assetForm" class="form-grid">
+                  <input type="text" name="name" placeholder="Nome do bem" required>
+                  <select name="type" id="assetTypeSelect" required>
+                    <option value="">Tipo</option>
+                    <option>Casa</option>
+                    <option>Carro</option>
+                    <option>Moto</option>
+                    <option>Terreno</option>
+                    <option>Outro</option>
+                  </select>
+                  <input type="hidden" name="brand" id="assetBrandInput">
+                  <div id="assetBrandPickerField" class="field-stack asset-brand-picker-field hidden">
+                    <span>Marca do veículo</span>
+                    <div id="assetBrandPicker" class="asset-brand-picker" role="listbox" aria-label="Selecionar marca do veículo"></div>
+                  </div>
+                  <div id="assetBrandManualField" class="field-stack hidden">
+                    <span>Marca</span>
+                    <input type="text" id="assetBrandManualInput" placeholder="Marca do bem">
+                  </div>
+                  <input type="text" name="totalValue" placeholder="Valor total" inputmode="decimal" data-money-input required>
+                  <input type="text" name="paidValue" placeholder="Quanto já pagou" inputmode="decimal" data-money-input required>
+                  <div id="assetFormNote" class="form-inline-note hidden">Atualize o valor já pago ou os dados do bem sem perder o histórico cadastrado.</div>
+                  <div class="form-action-row">
+                    <button type="submit" id="assetFormSubmit" class="primary-button">Cadastrar bem</button>
+                    <button type="button" id="assetFormCancel" class="ghost-button hidden">Cancelar edição</button>
+                  </div>
+                </form>
+              </article>
+
+              <article class="panel">
+                <div class="section-header">
+                  <div>
+                    <p class="eyebrow">Bens cadastrados</p>
+                    <h3>Patrimônio em acompanhamento</h3>
+                  </div>
+                </div>
+                <div id="assetList" class="list-grid records-list"></div>
+              </article>
+            </section>
+          </section>
+
+          <section class="tab-shell hidden" data-tab-panel="access">
+            <header class="tab-section-head">
+              <h3>Segurança da conta</h3>
+              <p class="section-copy">Gerencie sua senha, a verificação em duas etapas e a atividade recente da conta com leitura clara e estável.</p>
+            </header>
+            <div id="accessSummaryGrid" class="tab-summary-grid"></div>
+
+            <section class="tab-main-grid access-layout">
+              <div class="access-column">
+                <article class="panel access-card">
+                  <div class="section-header access-card-header">
+                    <div>
+                      <p class="eyebrow">Pessoas autorizadas</p>
+                      <h3>Pessoas com acesso</h3>
+                      <p class="meta">Veja quem pode entrar no ambiente protegido e remova acessos quando necessário.</p>
+                    </div>
+                  </div>
+                  <div id="memberList" class="list-grid records-list"></div>
+                </article>
+
+                <article id="memberAdminCard" class="panel access-card">
+                  <div class="section-header access-card-header">
+                    <div>
+                      <p class="eyebrow">Administração</p>
+                      <h3>Cadastrar pessoa</h3>
+                      <p class="meta" id="memberPanelMeta">Somente administradores podem cadastrar e remover pessoas neste ambiente.</p>
+                    </div>
+                  </div>
+                  <form id="memberForm" class="form-grid single-form">
+                    <label class="field-stack" for="memberName">
+                      <span>Nome</span>
+                      <input id="memberName" type="text" name="name" autocomplete="off" required>
+                    </label>
+                    <label class="field-stack" for="memberRole">
+                      <span>Perfil de acesso</span>
+                      <select id="memberRole" name="role" required>
+                        <option value="">Selecione</option>
+                        <option value="Administrador">Administrador</option>
+                        <option value="Financeiro">Financeiro</option>
+                      </select>
+                    </label>
+                    <label class="field-stack" for="memberPassword">
+                      <span>Senha de acesso</span>
+                      <input id="memberPassword" type="password" name="password" required>
+                    </label>
+                    <p class="hint">Use ao menos 8 caracteres com letra maiúscula, número e símbolo.</p>
+                    <p id="memberMessage" class="message"></p>
+                    <button type="submit" class="primary-button fit-button">Cadastrar pessoa</button>
+                  </form>
+                </article>
+
+                <article id="trackingStartCard" class="panel access-card">
+                  <div class="section-header access-card-header">
+                    <div>
+                      <p class="eyebrow">Acompanhamento</p>
+                      <h3>Início do uso financeiro</h3>
+                      <p class="meta">Defina a partir de qual mês o Pulse Finance deve considerar parcelados no crédito dentro do detalhamento do sistema.</p>
+                    </div>
+                  </div>
+                  <form id="trackingStartForm" class="form-grid single-form">
+                    <label class="field-stack" for="trackingStartMonth">
+                      <span>Mês inicial do acompanhamento</span>
+                      <input id="trackingStartMonth" type="month" name="trackingStartMonth">
+                    </label>
+                    <p class="hint">Antes desse mês, parcelados no crédito não entram retroativamente no cálculo detalhado. Isso evita misturar fatura antiga com parcelado lançado depois.</p>
+                    <p id="trackingStartMessage" class="message"></p>
+                    <button type="submit" class="primary-button fit-button">Salvar início do acompanhamento</button>
+                  </form>
+                </article>
+              </div>
+
+              <aside class="access-security-column">
+                <article class="panel access-card security-card">
+                  <div class="security-card-top">
+                    <div class="security-card-title">
+                      <span class="security-icon-chip" aria-hidden="true">🔒</span>
+                      <div>
+                        <h3>Senha de acesso</h3>
+                        <p class="meta">Atualize a senha da sua conta com uma combinação forte e fácil de identificar visualmente.</p>
+                      </div>
+                    </div>
+                    <span id="passwordStatusBadge" class="status-badge subtle">Carregando</span>
+                  </div>
+
+                  <form id="passwordForm" class="form-grid single-form">
+                    <label class="field-stack" for="currentPassword">
+                      <span>Senha atual</span>
+                      <input id="currentPassword" type="password" name="currentPassword" required>
+                    </label>
+                    <label class="field-stack" for="newPassword">
+                      <span>Nova senha</span>
+                      <input id="newPassword" type="password" name="newPassword" required>
+                    </label>
+                    <div class="password-strength-block" aria-live="polite">
+                      <div class="password-strength-head">
+                        <span>Força da senha</span>
+                        <strong id="passwordStrengthLabel">Aguardando preenchimento</strong>
+                      </div>
+                      <div class="password-strength-bar" id="passwordStrengthBar" aria-hidden="true">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                      </div>
+                    </div>
+                    <div class="password-requirements" id="passwordRequirements">
+                      <div class="password-requirement" data-rule="length">Ao menos 8 caracteres</div>
+                      <div class="password-requirement" data-rule="uppercase">1 letra maiúscula</div>
+                      <div class="password-requirement" data-rule="number">1 número</div>
+                      <div class="password-requirement" data-rule="symbol">1 símbolo</div>
+                    </div>
+                    <label class="field-stack" for="confirmNewPassword">
+                      <span>Confirmar nova senha</span>
+                      <input id="confirmNewPassword" type="password" name="confirmNewPassword" required>
+                    </label>
+                    <button type="submit" class="primary-button fit-button">Atualizar senha</button>
+                  </form>
+                  <p id="passwordMessage" class="message"></p>
+                </article>
+
+                <article class="panel access-card security-card">
+                  <div class="security-card-top">
+                    <div class="security-card-title">
+                      <span class="security-icon-chip" aria-hidden="true">⛨</span>
+                      <div>
+                        <h3>Verificação em duas etapas</h3>
+                        <p id="twoFactorStatus" class="meta">Carregando status de segurança.</p>
+                      </div>
+                    </div>
+                    <span id="twoFactorStatusBadge" class="status-badge neutral">Inativa</span>
+                  </div>
+
+                  <button type="button" id="twoFactorSetupButton" class="primary-button fit-button">Ativar 2FA</button>
+
+                  <details class="security-accordion">
+                    <summary>Como funciona o 2FA?</summary>
+                    <div class="security-accordion-body">
+                      <p class="meta"><strong>Uso normal:</strong> você entra com usuário e senha e, em seguida, confirma a entrada com o código de 6 dígitos do aplicativo autenticador.</p>
+                      <p class="meta"><strong>Plano B:</strong> se perder o celular ou ficar sem acesso ao aplicativo, use um código de recuperação no lugar do código normal para entrar uma vez.</p>
+                      <p class="meta"><strong>Depois do plano B:</strong> gere novos códigos de recuperação e recadastre o 2FA para continuar protegido.</p>
+                    </div>
+                  </details>
+
+                  <div id="twoFactorSetupPanel" class="security-code-panel hidden">
+                    <p class="meta">Escaneie o QR Code com um autenticador como Google Authenticator, Microsoft Authenticator, Authy ou 1Password.</p>
+                    <div id="twoFactorQrPanel" class="security-qr-panel hidden">
+                      <img id="twoFactorQrImage" class="security-qr-image" alt="QR Code para configurar o 2FA no aplicativo autenticador">
+                    </div>
+                    <label class="field-stack" for="twoFactorManualSecret">
+                      <span>Chave manual</span>
+                      <code id="twoFactorManualSecret" class="security-secret"></code>
+                    </label>
+                    <label class="field-stack" for="twoFactorOtpUri">
+                      <span>URI de configuração</span>
+                      <textarea id="twoFactorOtpUri" class="security-uri" readonly aria-label="URI de configuração 2FA"></textarea>
+                    </label>
+                    <form id="twoFactorEnableForm" class="form-grid single-form">
+                      <label class="field-stack" for="twoFactorEnableCode">
+                        <span>Código do aplicativo autenticador</span>
+                        <input id="twoFactorEnableCode" type="text" name="code" inputmode="numeric" autocomplete="one-time-code" required>
+                      </label>
+                      <button type="submit" class="primary-button fit-button">Confirmar 2FA</button>
+                    </form>
+                  </div>
+
+                  <div class="security-separator" aria-hidden="true"></div>
+
+                  <section class="security-subsection">
+                    <div class="security-subsection-head">
+                      <h4>Desativar 2FA</h4>
+                      <p class="meta">Use apenas se você realmente quiser retirar a camada extra de proteção.</p>
+                    </div>
+                    <form id="twoFactorDisableForm" class="form-grid single-form">
+                      <label class="field-stack" for="twoFactorDisableCurrentPassword">
+                        <span>Senha atual</span>
+                        <input id="twoFactorDisableCurrentPassword" type="password" name="currentPassword" required>
+                      </label>
+                      <label class="field-stack" for="twoFactorDisableCode">
+                        <span>Código do autenticador ou de recuperação</span>
+                        <input id="twoFactorDisableCode" type="text" name="code" inputmode="numeric" autocomplete="one-time-code" required>
+                      </label>
+                      <span class="tooltip-shell" id="twoFactorDisableTooltip" data-tooltip="">
+                        <button type="submit" id="twoFactorDisableButton" class="ghost-button danger-button fit-button">Desativar</button>
+                      </span>
+                    </form>
+                  </section>
+
+                  <div class="security-separator" aria-hidden="true"></div>
+
+                  <section class="security-subsection">
+                    <div class="security-subsection-head">
+                      <div>
+                        <h4>Códigos de recuperação</h4>
+                        <p id="recoveryCodesSummary" class="meta">Carregando status dos códigos.</p>
+                      </div>
+                      <span id="recoveryCodesBadge" class="status-badge warning">0 restantes</span>
+                    </div>
+                    <form id="twoFactorRecoveryForm" class="form-grid single-form">
+                      <label class="field-stack" for="twoFactorRecoveryCurrentPassword">
+                        <span>Senha atual</span>
+                        <input id="twoFactorRecoveryCurrentPassword" type="password" name="currentPassword" required>
+                      </label>
+                      <label class="field-stack" for="twoFactorRecoveryCode">
+                        <span>Código do autenticador ou de recuperação</span>
+                        <input id="twoFactorRecoveryCode" type="text" name="code" inputmode="numeric" autocomplete="one-time-code" required>
+                      </label>
+                      <span class="tooltip-shell" id="twoFactorRecoveryTooltip" data-tooltip="">
+                        <button type="submit" id="twoFactorRecoveryButton" class="ghost-button fit-button">Gerar novos códigos</button>
+                      </span>
+                    </form>
+
+                    <div id="twoFactorRecoveryPanel" class="security-code-panel hidden">
+                      <p class="meta">Cada código abaixo substitui o aplicativo autenticador uma única vez em caso de emergência.</p>
+                      <p class="meta">Guarde em local privado e seguro. Eles aparecem apenas agora.</p>
+                      <div id="twoFactorRecoveryCodes" class="recovery-code-grid"></div>
+                    </div>
+                  </section>
+                  <p id="twoFactorMessage" class="message"></p>
+                </article>
+
+                <article class="panel access-card security-card">
+                  <div class="security-card-top">
+                    <div class="security-card-title">
+                      <span class="security-icon-chip" aria-hidden="true">🕘</span>
+                      <div>
+                        <h3>Atividade recente da conta</h3>
+                        <p class="meta">Últimos acessos confirmados para reforçar a leitura de segurança da conta.</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div id="recentActivityList" class="recent-activity-list"></div>
+                  <button type="button" id="recentActivityToggle" class="inline-link-button">Ver tudo →</button>
+                </article>
+
+                <article class="panel access-card security-card">
+                  <div class="security-card-top">
+                    <div class="security-card-title">
+                      <span class="security-icon-chip" aria-hidden="true">🛟</span>
+                      <div>
+                        <h3>Proteção dos dados</h3>
+                        <p class="meta">O banco fica salvo fora da pasta do programa e atualizações não devem apagar o histórico financeiro.</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="stack">
+                    <p id="backupStorageMeta" class="meta">Carregando local dos dados.</p>
+                    <p id="backupRetentionMeta" class="meta">Carregando política de backup.</p>
+                    <button type="button" id="backupDataButton" class="primary-button fit-button">Baixar backup agora</button>
+                    <p id="backupDataMessage" class="message"></p>
+                  </div>
+                </article>
+
+                <article class="panel access-card security-card">
+                  <div class="security-card-top">
+                    <div class="security-card-title">
+                      <span class="security-icon-chip" aria-hidden="true">⬆</span>
+                      <div>
+                        <h3>Versão e atualização</h3>
+                        <p class="meta">Instale a versão nova por cima da atual. Os dados continuam preservados na pasta do usuário.</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="stack">
+                    <p id="appVersionMeta" class="meta">Carregando versão atual.</p>
+                    <p id="updateFlowMeta" class="meta">Carregando instruções de atualização.</p>
+                    <div class="form-action-row">
+                      <button type="button" id="openUpdatePageButton" class="primary-button fit-button">Baixar versão mais nova</button>
+                      <button type="button" id="openReleaseNotesButton" class="ghost-button fit-button">Ver versões</button>
+                    </div>
+                    <p id="updateActionMessage" class="message"></p>
+                  </div>
+                </article>
+              </aside>
+            </section>
+          </section>
+        </section>
+      </div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
